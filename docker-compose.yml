@@ -1,0 +1,26 @@
+version: "3.1"
+
+services:
+  nginx:
+    image: nginx:1.15.0
+    volumes:
+      - ./app:/var/www/app
+      - ./docker/nginx/service.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - default
+    ports:
+      - "8080:80"
+    depends_on:
+      - php-fpm
+
+
+  php-fpm:
+    build:
+      context: .
+      dockerfile: ./docker/php-fpm/Dockerfile
+    working_dir: /var/www/app
+    volumes:
+      - ./app:/var/www/app
+    networks:
+      - default
+
