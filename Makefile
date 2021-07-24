@@ -5,6 +5,9 @@ setup:
 up:
 	docker-compose up -d
 
+down:
+	docker-compose down
+
 test:
 	docker-compose exec php-fpm php ./vendor/bin/phpunit
 
