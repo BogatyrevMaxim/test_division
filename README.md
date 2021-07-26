@@ -15,3 +15,14 @@
 
 ## Bash в контейнер php-fpm
 ```make bash```
+
+## API
+
+POST http://localhost:8080/division
+
+Content-Type: application/json
+
+```{"dividend": 1.5, "divider": 3 }```
+
+response
+```{"result": 0.5}```
